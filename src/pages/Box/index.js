@@ -30,7 +30,7 @@ export default class Box extends Component {
     io.emit('connectRoom', box);
 
     io.on("file", data => {
-      this.setState({ box: { ...this.state.box, files: [data, ... this.state.box.files, ]}})
+      this.setState({box:{...this.state.box, files: [data, ...this.state.box.files,]}})
     });
   };
 
@@ -66,7 +66,7 @@ export default class Box extends Component {
       <ul>
         { this.state.box.files && this.state.box.files.map( file => (
            <li key={file._id}>
-           <a className="fileInfo" href={file.url} target="_blank">
+           <a className="fileInfo" href={file.url} target="_blank" without rel="noopener noreferrer">
              <MdInsertDriveFile size={24} color="A5Cfff" />
              <strong>{file.title}</strong>
            </a>
